@@ -1,4 +1,3 @@
-// src/redux/planetsSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -6,11 +5,10 @@ interface Planet {
   name: string;
   rotation_period: string;
   orbital_period: string;
-  // Добавьте другие поля, которые вам могут понадобиться
 }
 
 interface PlanetWithId extends Planet {
-  id: number; // Уникальный идентификатор для локального состояния
+  id: number; 
 }
 
 interface PlanetsState {

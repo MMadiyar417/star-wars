@@ -1,4 +1,3 @@
-// src/redux/starshipsSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -6,11 +5,10 @@ interface Starship {
   name: string;
   model: string;
   manufacturer: string;
-  // Добавьте другие поля, которые вам могут понадобиться
 }
 
 interface StarshipWithId extends Starship {
-  id: number; // Уникальный идентификатор для локального состояния
+  id: number; 
 }
 
 interface StarshipsState {
@@ -28,7 +26,7 @@ export const fetchStarships = createAsyncThunk(
   async (page: number) => {
     const response = await axios.get(`https://swapi.dev/api/starships/?page=${page}`);
     return response.data.results.map((starship: Starship, index: number) => ({
-      id: index + 1 + (page - 1) * 10, // Уникальный ID на основе страницы
+      id: index + 1 + (page - 1) * 10, 
       name: starship.name,
       model: starship.model,
       manufacturer: starship.manufacturer,

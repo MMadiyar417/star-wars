@@ -1,4 +1,3 @@
-// src/redux/peopleSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -6,11 +5,10 @@ interface Character {
   name: string;
   height: string;
   mass: string;
-  // Добавьте другие поля, которые вам могут понадобиться
 }
 
 interface CharacterWithId extends Character {
-  id: number; // Уникальный идентификатор для локального состояния
+  id: number;
 }
 
 interface PeopleState {
@@ -28,7 +26,7 @@ export const fetchCharacters = createAsyncThunk(
   async (page: number) => {
     const response = await axios.get(`https://swapi.dev/api/people/?page=${page}`);
     return response.data.results.map((character: Character, index: number) => ({
-      id: index + 1 + (page - 1) * 10, // Уникальный ID на основе страницы
+      id: index + 1 + (page - 1) * 10, 
       name: character.name,
       height: character.height,
       mass: character.mass,

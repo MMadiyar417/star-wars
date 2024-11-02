@@ -1,14 +1,15 @@
-// src/redux/store.ts
 import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './authSlice'; 
 import peopleReducer from './peopleSlice';
-import planetsReducer from './planetsSlice'; // Убедитесь, что импортируете planetsSlice
-import starshipsReducer from './starshipsSlice'; // И starshipsSlice
+import planetsReducer from './planetsSlice';
+import starshipsReducer from './starshipsSlice';
 
 const store = configureStore({
   reducer: {
+    auth: authReducer, 
     people: peopleReducer,
-    planets: planetsReducer, // Добавьте сюда planetsReducer
-    starships: starshipsReducer, // И starshipsReducer
+    planets: planetsReducer,
+    starships: starshipsReducer,
   },
 });
 
